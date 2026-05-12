@@ -27,7 +27,7 @@ Automatizar processos manuais e tornar a gestão hoteleira mais rápida, eficien
 <h2 align="center">💻 Tecnologias Utilizadas</h2>
 
 <p align="center">
-  <img src="https://skillicons.dev/icons?i=python,fastapi,mysql,html,css,js" />
+  <img src="https://skillicons.dev/icons?i=python,fastapi,mysql,html,css" />
 </p>
 
 - **Python** → Backend principal  
