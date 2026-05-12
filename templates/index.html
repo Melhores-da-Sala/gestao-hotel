@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Hotel Grand Solaris</title>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+        </div>
+
+        <nav>
+
+            <a href="/">Dashboard</a>
+
+            <a href="/hospedes">
+                Hóspedes
+            </a>
+
+            <a href="/quartos">
+                Quartos
+            </a>
+
+            <a href="/reservas">
+                Reservas
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main>
+
+        <section class="banner">
+
+            <h1 class="titulo">
+                Bem-vindo ao Sistema de Gestão Hoteleira!
+            </h1>
+
+            <p>
+                Gerencie hóspedes, quartos e reservas
+                de forma simples, rápida e eficiente.
+            </p>
+
+        </section>
+
+        <section class="cards">
+
+            <div class="card">
+                <h2>{{ total_hospedes }}</h2>
+                <p>Hóspedes Cadastrados</p>
+            </div>
+
+            <div class="card">
+                <h2>{{ total_quartos }}</h2>
+                <p>Quartos Disponíveis</p>
+            </div>
+
+            <div class="card">
+                <h2>{{ total_reservas }}</h2>
+                <p>Reservas Ativas</p>
+            </div>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
