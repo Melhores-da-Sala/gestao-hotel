@@ -1,9 +1,10 @@
 from dao import connection
-
+from datetime import date
 
 # ──────────────────────────────────────────
 # HÓSPEDES
 # ──────────────────────────────────────────
+
 
 def consulta_hospedes():
     conn = connection()
@@ -82,6 +83,7 @@ def delete_hospede(id):
 # QUARTOS
 # ──────────────────────────────────────────
 
+
 def consulta_quartos():
     conn = connection()
     cursor = conn.cursor(dictionary=True)
@@ -159,7 +161,8 @@ def delete_quarto(id):
 # RESERVAS
 # ──────────────────────────────────────────
 
-def consulta_reservas():
+
+def consulta_reservas_ativas():
     conn = connection()
     cursor = conn.cursor(dictionary=True)
 
@@ -170,6 +173,30 @@ def consulta_reservas():
         FROM reservas r
         JOIN hospedes h ON r.hospede_id = h.id
         JOIN quartos  q ON r.quarto_id  = q.id
+        WHERE r.data_saida >= CURDATE()
+    """
+
+    cursor.execute(query)
+    retorno = cursor.fetchall()
+
+    cursor.close()
+    conn.close()
+
+    return retorno
+
+
+def consulta_reservas_ativas():
+    conn = connection()
+    cursor = conn.cursor(dictionary=True)
+
+    query = """
+        SELECT r.*,
+               h.nome   AS nome_hospede,
+               q.numero AS numero_quarto
+        FROM reservas r
+        JOIN hospedes h ON r.hospede_id = h.id
+        JOIN quartos  q ON r.quarto_id  = q.id
+        WHERE r.data_saida >= CURDATE()
     """
 
     cursor.execute(query)
