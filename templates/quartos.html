@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Hotel Grand Solaris</title>
+</head>
+<body>
+    <aside class="sidebar">
+        <div class="logo-area">
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+        </div>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/hospedes">Hóspedes</a>
+            <a href="/quartos">Quartos</a> <a href="/reservas">Reservas</a>
+        </nav>
+    </aside>
+    <main>
+        <section class="secao-header">
+            <h2>Quartos</h2>
+            <a href="/add_quarto" class="btn-novo">+ Novo Quarto</a>
+        </section>
+        <section class="tabela-container">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nº Quarto</th>
+                    <th>Tipo</th>
+                    <th>Valor da Diária</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                {% for quarto in quartos %}
+                <tr>
+                    <td>{{ quarto.id }}</td>
+                    <td>{{ quarto.numero }}</td>
+                    <td>{{ quarto.tipo }}</td>
+                    <td>R$ {{ "%.2f"|format(quarto.valor_diaria) }}</td>
+                    <td>
+                        <span class="status-badge
+                            {% if quarto.status == 'Disponível' %}status-disponivel
+                            {% elif quarto.status == 'Ocupado' %}status-ocupado
+                            {% else %}status-manutencao{% endif %}">
+                            {{ quarto.status }}
+                        </span>
+                    </td>
+                    <td class="acoes">
+                        <a href="/edit_quarto/{{ quarto.id }}" class="btn-editar">Editar</a>
+                        <a href="/delete_quarto/{{ quarto.id }}" class="btn-excluir" onclick="return confirm('Excluir o quarto {{ quarto.numero }}?')">Excluir</a>                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="sem-dados">Nenhum quarto cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </main>
+</body>
+</html>

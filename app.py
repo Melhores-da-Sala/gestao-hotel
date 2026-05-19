@@ -247,3 +247,7 @@ async def editar_reserva(
 async def deletar_reserva(id: int):
     delete_reserva(id)
     return RedirectResponse(url="/reservas", status_code=303)
+
+if __name__ == "__main__":
+    import uvicorn
+    uvicorn.run("app:app", host="127.0.0.1", port=8000, reload=False)
