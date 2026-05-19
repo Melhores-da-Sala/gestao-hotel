@@ -12,7 +12,7 @@
 <body>
 
     <div class="sidebar">
-        <div class="logo-area">
+        <div class="logo_sidebar">
             <h2>Grand Solaris</h2>
         </div>
         <nav>
@@ -22,8 +22,8 @@
         </nav>
     </div>
 
-    <main>
-        <div class="topbar">
+    <div class="body_principal">
+        <div class="topo_site">
             <div>
                 <h1>Reservas</h1>
                 <p>Visualização e gerenciamento de reservas cadastradas</p>
@@ -63,7 +63,7 @@
                             <a href="/edit_reserva/{{ reserva.id }}" class="btn-editar">
                                 <i class="fa-solid fa-pen-to-square"></i>
                             </a>
-                            <a href="/delete_reserva/{{ reserva.id }}" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir esta reserva?')">
+                            <a href="/delete_reserva/{{ reserva.id }}" class="btn-excluir">
                                 <i class="fa-solid fa-trash"></i>
                             </a>
                         </div>
@@ -72,7 +72,7 @@
                 {% endfor %}
             </tbody>
         </table>
-    </main>
+    </div>
 
 </body>
 </html>

@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="/static/css/style.css">
+    <title>Hotel Grand Solaris</title>
+</head>
+
+<body>
+    <aside class="sidebar">
+        <div class="logo_sidebar">
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+        </div>
+        <nav>
+            <a href="/">Dashboard</a>
+            <a href="/hospedes">Hóspedes</a>
+            <a href="/quartos" class="active">Quartos</a>
+            <a href="/reservas">Reservas</a>
+        </nav>
+    </aside>
+    <div class="body_principal">
+        <section class="header-quartos">
+            <h2>Quartos</h2>
+            <a href="/add_quarto" class="btn-novo-quarto">+ Novo Quarto</a>
+        </section>
+        <section class="container-tabela-quartos">
+            <table>
+                <tr>
+                    <th>ID</th>
+                    <th>Nº Quarto</th>
+                    <th>Tipo</th>
+                    <th>Valor da Diária</th>
+                    <th>Status</th>
+                    <th>Ações</th>
+                </tr>
+                {% for quarto in quartos %}
+                <tr>
+                    <td>{{ quarto.id }}</td>
+                    <td>{{ quarto.numero }}</td>
+                    <td>{{ quarto.tipo }}</td>
+                    <td>R$ {{ "%.2f"|format(quarto.valor_diaria) }}</td>
+                    <td>
+                        <span class="badge-quarto 
+                            {% if quarto.status == 'Disponível' %}badge-quarto-disponivel
+                            {% elif quarto.status == 'Ocupado' %}badge-quarto-ocupado
+                            {% else %}badge-quarto-manutencao{% endif %}">
+                            {{ quarto.status }}
+                        </span>
+                    </td>
+                    <td class="acoes-quarto">
+                        <a href="/edit_quarto/{{ quarto.id }}" class="btn-editar-quarto">Editar</a>
+                        <a href="/delete_quarto/{{ quarto.id }}" class="btn-excluir-quarto"
+                            onclick="return confirm('Excluir o quarto {{ quarto.numero }}?')">Excluir</a>
+                    </td>
+                </tr>
+                {% else %}
+                <tr>
+                    <td colspan="6" class="linha-vazia-quartos">Nenhum quarto cadastrado.</td>
+                </tr>
+                {% endfor %}
+            </table>
+        </section>
+    </div>
+</body>
+</html>
