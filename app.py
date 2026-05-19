@@ -53,7 +53,7 @@ async def listar_hospedes(request: Request):
 async def pagina_add_hospede(request: Request):
     return templates.TemplateResponse(
         request=request,
-        name="form_hospede.html",
+        name="add_hospede.html",
         context={}
     )
 
@@ -75,7 +75,7 @@ async def pagina_edit_hospede(request: Request, id: int):
 
     return templates.TemplateResponse(
         request=request,
-        name="form_hospede.html",
+        name="edit_hospede.html",
         context={"hospede": hospede}
     )
 
