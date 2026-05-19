@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Editar Hóspede | Grand Solaris</title>
+</head>
+
+<body>
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+
+            <h2>Grand Solaris</h2>
+
+        </div>
+
+        <nav>
+
+            <a href="/hospedes">
+
+                <i class="bi bi-arrow-left"></i>
+
+                Voltar
+
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <main>
+
+        <header class="topbar">
+
+            <div>
+                <h1>Editar Hóspede</h1>
+
+                <p>Atualize as informações do hóspede cadastrado</p>
+            </div>
+
+        </header>
+
+        <section class="banner">
+
+            <h1 class="titulo">
+                Atualização de Hóspede
+            </h1>
+
+            <p>
+                Edite os dados do hóspede de forma rápida e segura.
+            </p>
+
+        </section>
+
+        <section class="container_formulario">
+
+            <form action="/edit_hospede/{{ hospede.id }}" method="post" class="formulario_hospede">
+
+                <div class="grupo_input">
+
+                    <label>Nome</label>
+
+                    <input type="text" name="nome" value="{{ hospede.nome }}" required>
+
+                </div>
+
+                <div class="grupo_input">
+
+                    <label>CPF</label>
+
+                    <input type="text" name="cpf" value="{{ hospede.cpf }}" required>
+
+                </div>
+
+                <div class="grupo_input">
+
+                    <label>Telefone</label>
+
+                    <input type="text" name="telefone" value="{{ hospede.telefone }}">
+
+                </div>
+
+                <div class="grupo_input">
+
+                    <label>Email</label>
+
+                    <input type="email" name="email" value="{{ hospede.email }}">
+
+                </div>
+
+                <div class="acoes_formulario">
+
+                    <a href="/hospedes" class="botao_cancelar">
+                        Cancelar
+                    </a>
+
+                    <button type="submit" class="botao_salvar">
+
+                        <i class="bi bi-check-lg"></i>
+
+                        Salvar Alterações
+
+                    </button>
+
+                </div>
+
+            </form>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
