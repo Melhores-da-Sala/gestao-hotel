@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <title>Hóspedes | Grand Solaris</title>
+</head>
+
+<body>
+
+    <!-- SIDEBAR -->
+
+    <aside class="sidebar">
+
+        <div class="logo-area">
+
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+
+            <h2>Grand Solaris</h2>
+
+        </div>
+
+        <nav>
+
+            <a href="javascript:history.back()">
+                <i class="bi bi-arrow-left"></i>
+                Voltar
+            </a>
+
+        </nav>
+
+    </aside>
+
+    <!-- MAIN -->
+
+    <main>
+
+        <!-- TOPO -->
+
+        <header class="topbar">
+
+            <div>
+                <h1>Hóspedes</h1>
+                <p>Visualização e gerenciamento de hóspedes cadastrados</p>
+            </div>
+
+            <a href="/add_hospede" class="botao_criar_hospede">
+
+                <div>
+                    <i class="bi bi-plus-lg"></i>
+
+                    <span>Novo Hóspede</span>
+                </div>
+
+            </a>
+
+        </header>
+
+        <!-- BANNER -->
+
+        <section class="banner">
+
+            <h1 class="titulo">
+                Gerenciamento de Hóspedes
+            </h1>
+
+            <p>
+                Consulte, edite e exclua hóspedes cadastrados
+                no sistema hoteleiro.
+            </p>
+
+        </section>
+
+        <!-- TABELA -->
+
+        <section class="tabela-container">
+
+            <table>
+
+                <thead>
+
+                    <tr>
+                        <th>ID</th>
+                        <th>Nome</th>
+                        <th>CPF</th>
+                        <th>Telefone</th>
+                        <th>Email</th>
+                        <th>Ações</th>
+                    </tr>
+
+                </thead>
+
+                <tbody>
+
+                    {% for hospede in hospedes %}
+
+                    <tr>
+
+                        <td>{{ hospede.id }}</td>
+
+                        <td>{{ hospede.nome }}</td>
+
+                        <td>{{ hospede.cpf }}</td>
+
+                        <td>{{ hospede.telefone }}</td>
+
+                        <td>{{ hospede.email }}</td>
+
+                        <td class="acoes">
+
+                            <a href="/edit_hospede/{{ hospede.id }}" class="btn-editar">
+
+                                <i class="bi bi-pencil-square"></i>
+
+                            </a>
+
+                            <a href="/delete_hospede/{{ hospede.id }}" class="btn-excluir">
+
+                                <i class="bi bi-trash"></i>
+
+                            </a>
+
+                        </td>
+
+                    </tr>
+
+                    {% endfor %}
+
+                </tbody>
+
+            </table>
+
+        </section>
+
+    </main>
+
+</body>
+
+</html>
