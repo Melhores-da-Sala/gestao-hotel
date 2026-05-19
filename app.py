@@ -168,7 +168,7 @@ async def deletar_quarto(id: int):
 
 @app.get("/reservas", response_class=HTMLResponse)
 async def listar_reservas(request: Request):
-    reservas = consulta_reservas()
+    reservas = consulta_reservas_ativas()
 
     return templates.TemplateResponse(
         request=request,
@@ -202,7 +202,6 @@ async def pagina_add_reserva(request: Request):
         }
     )
 
-
 @app.post("/add_reserva")
 async def adicionar_reserva(
     hospede_id: int = Form(...),
@@ -230,7 +229,6 @@ async def pagina_edit_reserva(request: Request, id: int):
         }
     )
 
-
 @app.post("/edit_reserva/{id}")
 async def editar_reserva(
     id: int,
@@ -247,3 +245,4 @@ async def editar_reserva(
 async def deletar_reserva(id: int):
     delete_reserva(id)
     return RedirectResponse(url="/reservas", status_code=303)
+

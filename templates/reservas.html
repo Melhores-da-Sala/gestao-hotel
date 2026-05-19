@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Solaris - Reservas</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <div class="sidebar">
+        <div class="logo-area">
+            <h2>Grand Solaris</h2>
+        </div>
+        <nav>
+            <a href="javascript:history.back()"><i class="fa-solid fa-arrow-left"></i> Voltar</a>
+        </nav>
+    </div>
+
+    <main>
+        <div class="topbar">
+            <div>
+                <h1>Reservas</h1>
+                <p>Visualização e gerenciamento de reservas cadastradas</p>
+            </div>
+            
+            <a href="/add_reserva" class="botao_criar_hospede">
+                <div>+ Nova Reserva</div>
+            </a>
+        </div>
+
+        <div class="banner">
+            <h2 class="titulo">Gerenciamento de Reservas</h2>
+            <p>Consulte, edite e exclua reservas cadastradas no sistema hoteleiro.</p>
+        </div>
+
+        <table>
+            <thead>
+                <tr>
+                    <th>ID</th>
+                    <th>Hóspede</th>
+                    <th>Quarto</th>
+                    <th>Check-in</th>
+                    <th>Check-out</th>
+                    <th>Ações</th>
+                </tr>
+            </thead>
+            <tbody>
+                {% for reserva in reservas %}
+                <tr>
+                    <td>{{ reserva.id }}</td>
+                    <td>{{ reserva.nome_hospede }}</td>
+                    <td>{{ reserva.numero_quarto }}</td>
+                    <td>{{ reserva.data_entrada }}</td>
+                    <td>{{ reserva.data_saida }}</td>
+                    <td>
+                        <div class="acoes">
+                            <a href="/edit_reserva/{{ reserva.id }}" class="btn-editar">
+                                <i class="fa-solid fa-pen-to-square"></i>
+                            </a>
+                            <a href="/delete_reserva/{{ reserva.id }}" class="btn-excluir" onclick="return confirm('Tem certeza que deseja excluir esta reserva?')">
+                                <i class="fa-solid fa-trash"></i>
+                            </a>
+                        </div>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+    </main>
+
+</body>
+</html>

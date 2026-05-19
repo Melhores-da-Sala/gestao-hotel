@@ -276,3 +276,34 @@ def delete_reserva(id):
 
     cursor.close()
     conn.close()
+
+def consulta_todas_reservas():
+     """Retorna TODAS as reservas (incluindo passadas) para o calendário."""
+     conn = connection()
+     cursor = conn.cursor(dictionary=True)
+
+     query = """
+         SELECT r.*,
+                h.nome   AS nome_hospede,
+                q.numero AS numero_quarto
+         FROM reservas r
+         JOIN hospedes h ON r.hospede_id = h.id
+         JOIN quartos  q ON r.quarto_id  = q.id
+         ORDER BY r.data_entrada
+     """
+
+     cursor.execute(query)
+     retorno = cursor.fetchall()
+
+     cursor.close()
+     conn.close()
+
+     # converter datas para string (JSON serializable)
+     for r in retorno:
+        if hasattr(r.get('data_entrada'), 'isoformat'):
+            r['data_entrada'] = r['data_entrada'].isoformat()
+        
+        if hasattr(r.get('data_saida'), 'isoformat'):
+             r['data_saida'] = r['data_saida'].isoformat()
+
+     return retorno
