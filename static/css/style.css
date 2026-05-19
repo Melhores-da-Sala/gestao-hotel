@@ -274,27 +274,21 @@ table tr:hover {
     background-color: #f4f7fb;
 }
 
-/* QUARTOS */
+/* Listagem dos quartos */
 
-.sidebar nav a.active {
-    background-color: #16345d;
-    color: white;
-    font-weight: bold;
-}
-
-.secao-header {
+.header-quartos {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 20px;
 }
 
-.secao-header h2 {
+.header-quartos h2 {
     color: #0b1f3a;
     font-size: 22px;
 }
 
-.btn-novo {
+.btn-novo-quarto {
     background-color: #0b1f3a;
     color: white;
     text-decoration: none;
@@ -305,24 +299,24 @@ table tr:hover {
     transition: 0.3s;
 }
 
-.btn-novo:hover {
+.btn-novo-quarto:hover {
     background-color: #16345d;
 }
 
-.tabela-container {
+.container-tabela-quartos {
     background-color: white;
     padding: 30px;
     border-radius: 20px;
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-.acoes {
+.acoes-quarto {
     display: flex;
     gap: 8px;
 }
 
-.btn-editar,
-.btn-excluir {
+.btn-editar-quarto,
+.btn-excluir-quarto {
     text-decoration: none;
     padding: 7px 14px;
     border-radius: 8px;
@@ -331,25 +325,25 @@ table tr:hover {
     transition: 0.3s;
 }
 
-.btn-editar {
+.btn-editar-quarto {
     background-color: #e3f0ff;
     color: #0b1f3a;
 }
 
-.btn-editar:hover {
+.btn-editar-quarto:hover {
     background-color: #cfe8ff;
 }
 
-.btn-excluir {
+.btn-excluir-quarto {
     background-color: #fde8e8;
     color: #c0392b;
 }
 
-.btn-excluir:hover {
+.btn-excluir-quarto:hover {
     background-color: #f5b7b1;
 }
 
-.status-badge {
+.badge-quarto {
     display: inline-block;
     padding: 5px 12px;
     border-radius: 20px;
@@ -357,30 +351,30 @@ table tr:hover {
     font-weight: bold;
 }
 
-.status-disponivel {
+.badge-quarto-disponivel {
     background-color: #d4edda;
     color: #155724;
 }
 
-.status-ocupado {
+.badge-quarto-ocupado {
     background-color: #fde8e8;
     color: #c0392b;
 }
 
-.status-manutencao {
+.badge-quarto-manutencao {
     background-color: #fff3cd;
     color: #856404;
 }
 
-.sem-dados {
+.linha-vazia-quartos {
     text-align: center;
     color: #999;
     padding: 40px !important;
 }
 
-/* FORMULÁRIO DE QUARTO */
+/* Formulário dos quartos */
 
-.form-container {
+.container-form-quarto {
     background-color: white;
     padding: 40px;
     border-radius: 20px;
@@ -388,19 +382,19 @@ table tr:hover {
     max-width: 600px;
 }
 
-.form-header {
+.header-form-quarto {
     display: flex;
     justify-content: space-between;
     align-items: center;
     margin-bottom: 30px;
 }
 
-.form-header h2 {
+.header-form-quarto h2 {
     color: #0b1f3a;
     font-size: 22px;
 }
 
-.btn-voltar {
+.btn-voltar-quarto {
     text-decoration: none;
     color: #0b1f3a;
     font-size: 14px;
@@ -411,25 +405,25 @@ table tr:hover {
     transition: 0.3s;
 }
 
-.btn-voltar:hover {
+.btn-voltar-quarto:hover {
     background-color: #cfe8ff;
 }
 
-.form-group {
+.grupo-input-quarto {
     display: flex;
     flex-direction: column;
     gap: 6px;
     margin-bottom: 20px;
 }
 
-.form-group label {
+.grupo-input-quarto label {
     color: #0b1f3a;
     font-size: 14px;
     font-weight: bold;
 }
 
-.form-group input,
-.form-group select {
+.grupo-input-quarto input,
+.grupo-input-quarto select {
     padding: 12px 15px;
     border: 1px solid #ddd;
     border-radius: 10px;
@@ -440,13 +434,13 @@ table tr:hover {
     transition: 0.3s;
 }
 
-.form-group input:focus,
-.form-group select:focus {
+.grupo-input-quarto input:focus,
+.grupo-input-quarto select:focus {
     border-color: #0b1f3a;
     background-color: white;
 }
 
-.btn-salvar {
+.btn-salvar-quarto {
     width: 100%;
     padding: 14px;
     background-color: #0b1f3a;
@@ -460,6 +454,6 @@ table tr:hover {
     margin-top: 10px;
 }
 
-.btn-salvar:hover {
+.btn-salvar-quarto:hover {
     background-color: #16345d;
 }
