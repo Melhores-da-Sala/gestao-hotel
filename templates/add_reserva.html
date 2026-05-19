@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Solaris - Nova Reserva</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo_sidebar">
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+        </div>
+        <nav>
+            <a href="/reservas">
+                <i class="bi bi-arrow-left"></i>
+                Voltar
+            </a>
+        </nav>
+    </aside>
+
+    <div class="body_principal">
+        <div class="topo_site">
+            <div>
+                <h1>Nova Reserva</h1>
+                <p>Preencha os campos para cadastrar uma nova estadia</p>
+            </div>
+        </div>
+
+        <div class="banner">
+            <h2 class="titulo">Formulário de Cadastro</h2>
+            <p>Selecione o hóspede, o quarto disponível e o período de entrada e saída.</p>
+        </div>
+
+        <div class="reservas-recentes">
+            <form action="/add_reserva" method="POST">
+                
+                <div>
+                    <label for="hospede_id">Hóspede</label>
+                    <select name="hospede_id" id="hospede_id" required>
+                        <option value="" disabled selected>Selecione um hóspede...</option>
+                        {% for hospede in hospedes %}
+                            <option value="{{ hospede.id }}">
+                                {{ hospede.nome }} (CPF: {{ hospede.cpf }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label for="quarto_id">Quarto</label>
+                    <select name="quarto_id" id="quarto_id" required>
+                        <option value="" disabled selected>Selecione um quarto...</option>
+                        {% for quarto in quartos %}
+                            <option value="{{ quarto.id }}">
+                                Quarto {{ quarto.numero }} - {{ quarto.tipo }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label for="data_entrada">Data de Check-in</label>
+                    <input type="date" name="data_entrada" id="data_entrada" required>
+                </div>
+
+                <div>
+                    <label for="data_saida">Data de Check-out</label>
+                    <input type="date" name="data_saida" id="data_saida" required>
+                </div>
+
+                <div>
+                    <button type="submit" class="botao_criar_hospede" style="border: none; cursor: pointer;">
+                        <div>Confirmar Reserva</div>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </div>
+
+</body>
+</html>

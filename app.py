@@ -96,8 +96,6 @@ async def editar_hospede(
 async def deletar_hospede(id: int):
     delete_hospede(id)
     return RedirectResponse(url="/hospedes", status_code=303)
-
-
 # ──────────────────────────────────────────
 # QUARTOS
 # ──────────────────────────────────────────
@@ -195,7 +193,7 @@ async def pagina_add_reserva(request: Request):
 
     return templates.TemplateResponse(
         request=request,
-        name="form_reserva.html",
+        name="add_reserva.html",
         context={
             "hospedes": hospedes,
             "quartos": quartos
@@ -221,7 +219,7 @@ async def pagina_edit_reserva(request: Request, id: int):
 
     return templates.TemplateResponse(
         request=request,
-        name="form_reserva.html",
+        name="edit_reserva.html",
         context={
             "reserva": reserva,
             "hospedes": hospedes,
