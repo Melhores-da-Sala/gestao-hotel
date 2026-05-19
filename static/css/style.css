@@ -2,251 +2,157 @@
     padding: 0;
     margin: 0;
     box-sizing: border-box;
-
     font-family: Arial, Helvetica, sans-serif;
 }
 
 body {
     display: flex;
-
-    background-color: #f4f7fb;
+    background-color: #e7e7e7;
 }
-
-/* SIDEBAR */
 
 .sidebar {
     width: 250px;
     height: 100vh;
-
-    background-color: #0b1f3a;
-
+    background-color: #0b1a3a;
     position: fixed;
-
     left: 0;
     top: 0;
-
     padding: 30px 20px;
 }
 
-.logo-area {
+.logo_sidebar {
     text-align: center;
-
     margin-bottom: 50px;
 }
 
-.logo-area img {
+.logo_sidebar img {
     width: 140px;
 }
 
-.logo-area h2 {
+.logo_sidebar h2 {
     color: white;
-
     margin-top: 10px;
 }
 
 .sidebar nav {
     display: flex;
     flex-direction: column;
-
     gap: 15px;
 }
 
 .sidebar nav a {
     text-decoration: none;
-
     color: #d7e8ff;
-
     padding: 15px;
-
     border-radius: 10px;
-
     transition: 0.3s;
-
     display: flex;
     align-items: center;
-
     gap: 10px;
 }
 
 .sidebar nav a:hover {
     background-color: #16345d;
-
     transform: translateX(5px);
 }
 
-/* MAIN */
-
-main {
+.body_principal {
     margin-left: 250px;
-
     width: calc(100% - 250px);
-
     padding: 40px;
 }
 
-/* TOPBAR */
-
-.topbar {
+.topo_site {
     display: flex;
-
     justify-content: space-between;
     align-items: center;
-
     margin-bottom: 30px;
 }
 
-.topbar h1 {
+.topo_site h1 {
     color: #0b1f3a;
-
     font-size: 35px;
 }
 
-.topbar p {
+.topo_site p {
     color: #666;
-
     margin-top: 5px;
 }
 
-.admin {
-    display: flex;
-    align-items: center;
-
-    gap: 10px;
-
-    background-color: white;
-
-    padding: 12px 20px;
-
-    border-radius: 10px;
-
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-}
-
-.admin i {
-    font-size: 22px;
-
-    color: #0b1f3a;
-}
-
-/* BANNER */
-
 .banner {
-    background-color: #cfe8ff;
-
+    background-color: transparent;
     padding: 40px;
-
     border-radius: 20px;
-
     margin-bottom: 40px;
-
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .banner .titulo {
     color: #0b1f3a;
-
     font-size: 35px;
-
     margin-bottom: 15px;
 }
 
 .banner p {
     color: #555;
-
     font-size: 18px;
-
     line-height: 1.6;
 }
 
-/* CARDS */
-
-.cards {
+.blocos {
     display: flex;
-
     gap: 25px;
-
     flex-wrap: wrap;
-
     margin-bottom: 40px;
 }
 
-.card {
+.bloco {
     flex: 1;
-
     min-width: 250px;
-
     background-color: white;
-
     padding: 30px;
-
     border-radius: 20px;
-
     display: flex;
     align-items: center;
-
     gap: 20px;
-
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
-
     transition: 0.3s;
 }
 
-.card:hover {
-    transform: translateY(-5px);
-
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.15);
-}
-
-.card .icon {
+.bloco .icon {
     width: 70px;
     height: 70px;
-
     background-color: #e3f0ff;
-
     border-radius: 15px;
-
     display: flex;
     justify-content: center;
     align-items: center;
 }
 
-.card .icon i {
+.bloco .icon i {
     font-size: 30px;
-
     color: #0b1f3a;
 }
 
-.card h2 {
+.bloco h2 {
     font-size: 35px;
-
     color: #0b1f3a;
 }
 
-.card p {
+.bloco p {
     color: #666;
-
     margin-top: 5px;
 }
 
-/* RESERVAS RECENTES */
-
 .reservas-recentes {
     background-color: white;
-
     padding: 30px;
-
     border-radius: 20px;
-
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
 }
 
 .reservas-recentes h2 {
     color: #0b1f3a;
-
     margin-bottom: 20px;
 }
-
-/* TABELA */
 
 table {
     width: 100%;
@@ -296,34 +202,22 @@ table tr:hover {
     margin: 0 auto;
 }
 
-/* AÇÕES */
-
 .acoes {
     display: flex;
-
     gap: 10px;
-
     align-items: center;
 }
 
-/* BOTÃO EDITAR */
-
 .btn-editar {
     background-color: #0d6efd;
-
     color: white;
-
     text-decoration: none;
-
     width: 40px;
     height: 40px;
-
     border-radius: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.3s;
 }
 
@@ -335,20 +229,14 @@ table tr:hover {
 
 .btn-excluir {
     background-color: #dc3545;
-
     color: white;
-
     text-decoration: none;
-
     width: 40px;
     height: 40px;
-
     border-radius: 10px;
-
     display: flex;
     justify-content: center;
     align-items: center;
-
     transition: 0.3s;
 }
 
@@ -358,61 +246,43 @@ table tr:hover {
 
 .container_formulario {
     background-color: white;
-
     padding: 40px;
-
     border-radius: 20px;
-
     box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.08);
 }
 
 .formulario_hospede {
     display: flex;
-
     flex-direction: column;
-
     gap: 25px;
 }
 
-/* GRUPOS DE INPUT */
 
 .grupo_input {
     display: flex;
-
     flex-direction: column;
-
     gap: 10px;
 }
 
 .grupo_input label {
     color: #0b1f3a;
-
     font-size: 16px;
-
     font-weight: bold;
 }
 
 .grupo_input input {
     width: 100%;
-
     padding: 15px;
-
     border: 1px solid #dcdcdc;
-
     border-radius: 12px;
-
     outline: none;
-
     font-size: 16px;
-
     transition: 0.3s;
-
     background-color: #f9fbff;
 }
 
 .grupo_input input:focus {
     border-color: #0b1f3a;
-
     box-shadow: 0px 0px 8px rgba(11, 31, 58, 0.2);
 }
 
@@ -420,11 +290,8 @@ table tr:hover {
 
 .acoes_formulario {
     display: flex;
-
     justify-content: flex-end;
-
     gap: 15px;
-
     margin-top: 10px;
 }
 
@@ -432,17 +299,11 @@ table tr:hover {
 
 .botao_cancelar {
     background-color: #dc3545;
-
     color: white;
-
     text-decoration: none;
-
     padding: 14px 25px;
-
     border-radius: 12px;
-
     transition: 0.3s;
-
     font-weight: bold;
 }
 
@@ -450,31 +311,17 @@ table tr:hover {
     background-color: #bb2d3b;
 }
 
-/* BOTÃO SALVAR */
-
 .botao_salvar {
     background-color: #0b1f3a;
-
     color: white;
-
     border: none;
-
     padding: 14px 25px;
-
     border-radius: 12px;
-
-    cursor: pointer;
-
     display: flex;
-
     align-items: center;
-
     gap: 10px;
-
     font-size: 15px;
-
     font-weight: bold;
-
     transition: 0.3s;
 }
 
