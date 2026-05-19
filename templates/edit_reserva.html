@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Grand Solaris - Editar Reserva</title>
+    
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+</head>
+<body>
+
+    <aside class="sidebar">
+        <div class="logo-area">
+            <img src="/static/assets/logo_hotel.png" alt="Logo Hotel">
+        </div>
+        <nav>
+            <a href="/reservas">
+                <i class="bi bi-arrow-left"></i>
+                Voltar
+            </a>
+        </nav>
+    </aside>
+
+    <main>
+        <div class="topbar">
+            <div>
+                <h1>Editar Reserva #{{ reserva.id }}</h1>
+                <p>Altere os dados da estadia selecionada</p>
+            </div>
+        </div>
+
+        <div class="banner">
+            <h2 class="titulo">Formulário de Edição</h2>
+            <p>Atualize o hóspede, o quarto ou o período da reserva.</p>
+        </div>
+
+        <div class="reservas-recentes">
+            <form action="/edit_reserva/{{ reserva.id }}" method="POST">
+                
+                <div>
+                    <label for="hospede_id">Hóspede</label>
+                    <select name="hospede_id" id="hospede_id" required>
+                        <option value="" disabled>Selecione um hóspede...</option>
+                        {% for hospede in hospedes %}
+                            <option value="{{ hospede.id }}" {% if reserva.hospede_id == hospede.id %}selected{% endif %}>
+                                {{ hospede.nome }} (CPF: {{ hospede.cpf }})
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label for="quarto_id">Quarto</label>
+                    <select name="quarto_id" id="quarto_id" required>
+                        <option value="" disabled>Selecione um quarto...</option>
+                        {% for quarto in quartos %}
+                            <option value="{{ quarto.id }}" {% if reserva.quarto_id == quarto.id %}selected{% endif %}>
+                                Quarto {{ quarto.numero }} - {{ quarto.tipo }}
+                            </option>
+                        {% endfor %}
+                    </select>
+                </div>
+
+                <div>
+                    <label for="data_entrada">Data de Check-in</label>
+                    <input type="date" name="data_entrada" id="data_entrada" value="{{ reserva.data_entrada }}" required>
+                </div>
+
+                <div>
+                    <label for="data_saida">Data de Check-out</label>
+                    <input type="date" name="data_saida" id="data_saida" value="{{ reserva.data_saida }}" required>
+                </div>
+
+                <div>
+                    <button type="submit" class="botao_criar_hospede">
+                        <div>Salvar Alterações</div>
+                    </button>
+                </div>
+
+            </form>
+        </div>
+    </main>
+
+</body>
+</html>

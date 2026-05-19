@@ -195,7 +195,7 @@ async def pagina_add_reserva(request: Request):
 
     return templates.TemplateResponse(
         request=request,
-        name="form_reserva.html",
+        name="add_reserva.html",
         context={
             "hospedes": hospedes,
             "quartos": quartos
@@ -221,7 +221,7 @@ async def pagina_edit_reserva(request: Request, id: int):
 
     return templates.TemplateResponse(
         request=request,
-        name="form_reserva.html",
+        name="edit_reserva.html",
         context={
             "reserva": reserva,
             "hospedes": hospedes,
@@ -246,3 +246,38 @@ async def deletar_reserva(id: int):
     delete_reserva(id)
     return RedirectResponse(url="/reservas", status_code=303)
 
+# Rota para visualizar os detalhes de uma reserva específica (view_reserva)
+@app.get("/view_reserva/{id}", response_class=HTMLResponse)
+async def pagina_visualizar_reserva(request: Request, id: int):
+    reserva = obter_detalhes_reserva(id)
+    
+    if not reserva:
+        return {"erro": "Reserva não encontrada"}
+        
+    return templates.TemplateResponse(
+        request=request,
+        name="view_reserva.html",
+        context={
+            "reserva": reserva
+        }
+    )
+
+# Rota para abrir o formulário preenchido para edição (edit_reserva)
+@app.get("/edit_reserva/{id}", response_class=HTMLResponse)
+async def pagina_editar_reserva(request: Request, id: int):
+    reserva = obter_detalhes_reserva(id)
+    hospedes = consulta_hospedes()
+    quartos = consulta_quartos()
+    
+    if not reserva:
+        return {"erro": "Reserva não encontrada"}
+        
+    return templates.TemplateResponse(
+        request=request,
+        name="form_reserva.html",
+        context={
+            "reserva": reserva,
+            "hospedes": hospedes,
+            "quartos": quartos
+        }
+    )
